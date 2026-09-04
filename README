@@ -1,0 +1,497 @@
+# AI Automation Portfolio
+
+## Oleksandra Stepanova
+
+**AI Automation & Business Process Design**
+
+I turn business problems into practical AI-powered workflows.
+
+I combine business thinking, process analysis and AI automation to identify repetitive tasks, design practical solutions and turn them into working workflows.
+
+**From business problem → to measurable, implementable AI solution.**
+
+---
+
+## How I Approach a Business Problem
+
+My approach combines business analysis, process design, AI automation and governance.
+
+1. **Understand**  
+   Business context · Goals · Users · Constraints
+
+2. **Analyze**  
+   AS-IS process · Pain points · Bottlenecks
+
+3. **Identify**  
+   AI opportunities · Automation potential
+
+4. **Prioritize**  
+   Business value · Feasibility · Risk
+
+5. **Design**  
+   TO-BE process · AI architecture · Workflow
+
+6. **Model the Economics**  
+   ROI · TCO · Payback · Business value
+
+7. **Automate**  
+   n8n · AI Agents · Integrations
+
+8. **Govern**  
+   GDPR · Compliance · Evaluation · Monitoring
+
+---
+
+# Projects
+
+## 01 · AI Knowledge Assistant with Human-in-the-Loop
+
+### Internal Knowledge
+
+**What if your employees could get instant answers — even when the AI doesn't know the answer?**
+
+### Problem
+
+Employees repeatedly ask colleagues or experts the same questions. Valuable knowledge remains distributed across people instead of becoming reusable organizational knowledge.
+
+### Solution
+
+An AI agent first searches the company's knowledge base using RAG and Qdrant.
+
+If a reliable answer is found, the agent responds immediately.
+
+If no reliable answer is available, the question is escalated to an expert. The confirmed answer is then added to the knowledge base, turning unanswered questions into new organizational knowledge.
+
+### Workflow
+
+```text
+Employee question
+        ↓
+   AI Agent
+        ↓
+RAG / Knowledge Search
+        ↓
+   Answer found?
+      ↙       ↘
+    Yes        No
+     ↓          ↓
+   Answer   Expert Review
+                ↓
+        Confirmed Answer
+                ↓
+        Update Knowledge Base
+
+Technologies
+
+n8n · OpenAI · RAG · Qdrant · OpenAI Embeddings · Google Sheets · Telegram
+
+02 · AI Voice Support Agent
+Voice Interface
+
+What if your support team could get product information by voice?
+
+Problem
+
+Support employees need fast access to product information and availability.
+
+Manual searching through tables and systems slows down responses.
+
+Solution
+
+A voice-enabled AI agent accepts voice or text requests, understands requests in multiple languages, searches product information and returns the answer as text or voice.
+
+Workflow
+
+Voice / Text Request
+        ↓
+Input Processing
+        ↓
+Speech-to-Text
+        ↓
+Input Normalization
+        ↓
+    AI Agent
+        ↓
+ Product Search
+        ↓
+ Answer Generation
+        ↓
+Text / Voice Response
+
+Technologies
+
+n8n · Telegram · OpenRouter · ChatGPT-4 · 11Labs · Google Sheets · Qdrant
+
+Key Concepts
+Voice-first support
+Multilingual AI
+Product knowledge search
+Automated responses
+
+03 · AI Multi-Agent Support System
+E-Commerce Support
+
+What if your online store could handle most support requests automatically?
+
+Not one chatbot — a coordinated AI support system with specialized agents, human escalation and automated quality control.
+
+Problem
+
+An online store receives product, order, return and warranty questions.
+
+Employees manually classify requests, search for information and prepare responses.
+
+Solution
+
+A Router Agent identifies the request type and sends it to a specialized AI agent.
+
+Complex or uncertain cases are escalated to a human operator.
+
+AI-generated responses are then evaluated by a separate Evaluation Agent and logged for quality monitoring.
+
+Workflow
+
+Customer Request
+        ↓
+   Router Agent
+        ↓
+ ┌──────┼───────────────┐
+ ↓      ↓               ↓
+Product & Order    Returns &      Human Support
+Agent              Warranty Agent
+ └──────┬───────────────┘
+        ↓
+   AI Response
+        ↓
+ Evaluation Agent
+        ↓
+    Quality Log
+
+Technologies
+
+n8n · OpenRouter · ChatGPT-4 · Telegram · Google Sheets · Qdrant / Vector Store
+
+Key Concepts
+Multi-agent architecture
+Intelligent routing
+Human escalation
+Automated evaluation
+Quality monitoring
+04 · Privacy-Safe LLM Workflow
+Privacy & Compliance
+
+What if your company could use LLMs without exposing sensitive data?
+
+Problem
+
+AI applications may need to process personally identifiable or sensitive information.
+
+Sending such data directly to an external LLM can create privacy and compliance risks.
+
+Solution
+
+The workflow identifies sensitive information and replaces it with tokens before the data reaches the LLM.
+
+A risk gate determines whether processing can continue.
+
+If the workflow is considered safe, the LLM processes the tokenized data. The original values can then be restored.
+
+Unsafe requests are blocked or sent for human review.
+
+Workflow
+
+Dataset
+   ↓
+PII Detection / Tokenization
+   ↓
+ Risk Gate
+   ↓
+ ┌───────────────┴───────────────┐
+ ↓                               ↓
+Safe                          Not Safe
+ ↓                               ↓
+LLM Processing              Block / Human Review
+ ↓
+Restore Tokens
+ ↓
+Final Output
+
+Technologies
+
+n8n · PII Tokenization · Risk Gate · LLM · Data Protection
+
+Key Concepts
+PII protection
+Tokenization
+Risk-based processing
+Human review
+Privacy-aware LLM workflows
+05 · AI Legal Navigator
+Legal Operations
+
+What if your legal team could automate routine questions and route complex cases to the right person?
+
+Problem
+
+Legal teams receive repetitive questions, but different requests require different actions:
+
+information search
+document-related tasks
+consultation
+specialist involvement
+Solution
+
+The AI agent analyzes the request and routes it to the appropriate workflow.
+
+Relevant information can be retrieved from the corporate knowledge base using RAG and Qdrant.
+
+Workflow
+
+User Request
+      ↓
+AI Legal Navigator
+      ↓
+Request Classification
+      ↓
+Appropriate Workflow
+      ↓
+Knowledge Retrieval / Action
+      ↓
+Response or Human Escalation
+
+Technologies
+
+n8n · OpenRouter · LLM · RAG · Qdrant · OpenAI Embeddings · Telegram · Gmail · Google Sheets
+
+Key Concept
+
+One entry point → intelligent routing → specialized workflows → relevant answer or human escalation.
+
+06 · AI Feedback Triage
+Customer Feedback
+
+What if AI could decide which customer feedback needs human attention?
+
+Problem
+
+Customer feedback must be read, classified and prioritized.
+
+As volume increases, manual review becomes slower and important issues can be missed.
+
+Solution
+
+The AI analyzes incoming feedback, validates the input and assigns a confidence / priority level.
+
+Different confidence levels determine the next action.
+
+Workflow
+
+Customer Feedback
+        ↓
+Input Validation
+        ↓
+   AI Analysis
+        ↓
+Confidence Assessment
+        ↓
+ ┌────────┼─────────┐
+ ↓        ↓         ↓
+High    Medium      Low
+ ↓        ↓         ↓
+Auto    Human      Request
+Response Review   More Info
+        ↓
+   Google Sheets
+        ↓
+       Log
+
+Technologies
+
+n8n · OpenRouter · AI Agent · Google Sheets
+
+Key Concepts
+AI triage
+Confidence-based routing
+Human-in-the-loop
+Automated logging
+07 · Lead Generation & AI Qualification
+Lead Generation
+
+What if your business could turn AI conversations into qualified leads?
+
+AI conversations become structured, qualified and measurable lead data.
+
+Challenge
+
+Potential customers interact with AI, but valuable lead information can remain inside the conversation.
+
+Solution
+
+An AI Agent answers questions using a RAG knowledge base, identifies potential leads and automatically submits structured lead data to the business.
+
+Workflow
+
+User
+ ↓
+AI Agent
+ ↓
+RAG / Qdrant
+ ↓
+Intent Analysis
+ ↓
+Lead Qualification
+ ↓
+Submit Lead
+ ↓
+┌──────────────┬──────────────┐
+↓              ↓              ↓
+Google Sheets  Gmail       Telegram
+
+Technologies
+
+n8n · AI Agent · Qdrant · RAG · OpenRouter · Google Sheets · Webhooks · Gmail · Telegram
+
+Supporting Workflows
+Lead Delivery
+
+Submitted lead data is delivered through a webhook to multiple business channels at the same time:
+
+Google Sheets
+Gmail
+Telegram
+
+This separates lead generation from lead delivery and allows the captured data to be routed to the systems used by the business.
+
+Automated AI Quality Control
+
+A scheduled workflow runs test cases against the AI agent.
+
+A Judge Agent with access to the knowledge base evaluates each answer, scores the result, logs the evaluation and alerts when the score drops below the defined threshold.
+
+Scheduled Test Cases
+        ↓
+     AI Agent
+        ↓
+   Generated Answer
+        ↓
+    Judge Agent
+        ↓
+      Score
+        ↓
+     Log Result
+        ↓
+Score below threshold?
+      ↙       ↘
+    No         Yes
+     ↓           ↓
+ Continue      Alert
+
+Technologies
+
+n8n · Judge Agent · Qdrant · Embeddings · Google Sheets · Webhooks · Gmail · Telegram
+
+Core Capabilities
+Business Process Design
+Business problem analysis
+AS-IS process analysis
+Pain point and bottleneck identification
+TO-BE process design
+Automation opportunity assessment
+Business value prioritization
+AI Automation
+AI Agents
+Multi-agent workflows
+RAG
+Vector search
+Knowledge bases
+AI-powered routing
+Automated classification
+Lead qualification
+Voice interfaces
+Human-in-the-Loop
+
+AI does not always need to act autonomously.
+
+These workflows demonstrate controlled escalation when:
+
+the answer is unavailable
+confidence is insufficient
+the request is complex
+sensitive information is involved
+a specialist decision is required
+AI Governance
+Privacy-aware processing
+PII tokenization
+Risk gates
+Human escalation
+Automated evaluation
+Quality monitoring
+Knowledge base updates
+Technology Stack
+
+| Area                | Technologies                                    |
+| ------------------- | ----------------------------------------------- |
+| Automation          | n8n                                             |
+| AI / LLM            | OpenAI, OpenRouter, ChatGPT-4                   |
+| AI Agents           | AI Agent workflows, Router Agent, Judge Agent   |
+| Knowledge Retrieval | RAG, Qdrant, Vector Store                       |
+| Embeddings          | OpenAI Embeddings                               |
+| Voice               | 11Labs, Speech-to-Text                          |
+| Communication       | Telegram, Gmail                                 |
+| Data                | Google Sheets                                   |
+| Integration         | Webhooks                                        |
+| Governance          | PII Tokenization, Risk Gates, Human-in-the-Loop |
+
+Design Philosophy
+
+I don't approach AI as a chatbot-first problem.
+
+I start with the business process:
+
+Business Problem
+       ↓
+Process Analysis
+       ↓
+AI Opportunity
+       ↓
+Business Value + Feasibility + Risk
+       ↓
+TO-BE Process
+       ↓
+AI Architecture
+       ↓
+Automation
+       ↓
+Evaluation & Monitoring
+
+The goal is not simply to add AI.
+
+The goal is to design a solution that is useful, implementable, measurable and controllable.
+
+Portfolio Structure
+
+Each project demonstrates a different AI automation pattern:
+
+| Project                   | Primary Pattern                       |
+| ------------------------- | ------------------------------------- |
+| AI Knowledge Assistant    | RAG + Human-in-the-Loop               |
+| AI Voice Support Agent    | Voice + Multilingual AI               |
+| AI Multi-Agent Support    | Agent Routing + Evaluation            |
+| Privacy-Safe LLM Workflow | PII Protection + Risk Gate            |
+| AI Legal Navigator        | Intelligent Routing + RAG             |
+| AI Feedback Triage        | Confidence-Based Escalation           |
+| Lead Generation           | RAG + Intent Analysis + Qualification |
+| Quality Control           | Automated AI Evaluation               |
+
+
+About
+
+Alexandra Stepanova
+
+AI Automation & Business Process Design
+
+I design practical AI-powered workflows by combining business process analysis, automation and AI.
+
+My focus is on identifying where AI can create real business value, designing the right workflow architecture and building controlled automation with appropriate human oversight.
+
+From business problem → to measurable, implementable AI solution.
